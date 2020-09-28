@@ -4,7 +4,7 @@ function SortPopup({items}) {
     const[visiblePopub, setVisiblePopub] = React.useState(false);
     const[activeItem, setActiveItem] = React.useState(0);
   const sortRef = React.useRef();
-  const activeLabel= items[activeItem];
+  const activeLabel= items[activeItem].name;
   
   
 
@@ -15,7 +15,7 @@ function SortPopup({items}) {
     const handleOutsideClick=(e) =>{
         if(!e.path.includes(sortRef.current)){
           setVisiblePopub(false);
-          console.log('outside');
+
         }
         
     };
@@ -52,12 +52,15 @@ function SortPopup({items}) {
                     <li
                      
                     className={activeItem === null ? 'active':''} ></li>
-                        { items.map ((name, index) => (
+                        { items.map ((obj, index) => (
                         <li 
                         onClick = {()=> onSelectItem (index)}
                         className={activeItem === index ? 'active':''}
-                        key = {`${name}_${index}`}> {name}</li>
-                        ))}
+                        key = {`${obj.type}_${index}`}>
+                        {obj.name}
+                        </li>
+                      ))
+                    }
                    
                     
                 </ul>
