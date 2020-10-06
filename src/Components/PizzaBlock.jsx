@@ -2,7 +2,7 @@ import React from 'react'
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-console.log(PropTypes);
+
 
 function PizzaBlock({name, imageUrl,price,types, sizes}) {
     const[ activeType,setActiveType] = React.useState(types[0]);
